@@ -11,9 +11,9 @@ marked.setOptions({
 const WORKSPACE_DIR = path.resolve(__dirname, '..');
 const CONTENT_DIR = path.join(WORKSPACE_DIR, 'content', 'posts');
 const TEMPLATE_PATH = path.join(WORKSPACE_DIR, 'templates', 'post_template.html');
-const BLOG_DIR = path.join(WORKSPACE_DIR, 'stitch_editorial_tech_portfolio', 'blog_alex_chen_portfolio_refined');
-const BLOG_POSTS_OUTPUT_DIR = path.join(BLOG_DIR, 'posts');
-const BLOG_LIST_PATH = path.join(BLOG_DIR, 'code.html');
+const BLOG_DIR = WORKSPACE_DIR;
+const BLOG_POSTS_OUTPUT_DIR = path.join(WORKSPACE_DIR, 'posts');
+const BLOG_LIST_PATH = path.join(WORKSPACE_DIR, 'blog.html');
 
 // Helper to parse frontmatter
 function parsePost(fileContent) {
@@ -155,7 +155,7 @@ function main() {
     blogListHtml.substring(endIndex);
 
   fs.writeFileSync(BLOG_LIST_PATH, updatedBlogListHtml, 'utf-8');
-  console.log('Successfully updated blog list in code.html!');
+  console.log('Successfully updated blog list in blog.html!');
   console.log(`Compiled ${posts.length} posts.`);
 }
 

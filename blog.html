@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Gunin Sharma — Projects</title>
-  <meta name="description" content="Projects by Gunin Sharma — ML systems, data tools, and software experiments.">
+  <title>Gunin Sharma — Blog</title>
+  <meta name="description" content="Blog by Gunin Sharma — thoughts on technology, ML, data science, and building systems.">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
   
   <style>
@@ -58,7 +58,7 @@
       -moz-osx-font-smoothing: grayscale;
     }
 
-    .pr-root {
+    .bl-root {
       width: 100%;
       max-width: 900px;
       min-height: 100vh;
@@ -68,7 +68,7 @@
       flex-direction: column;
     }
 
-    .pr-nav {
+    .bl-nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -82,7 +82,7 @@
       -webkit-backdrop-filter: blur(12px);
     }
 
-    .pr-logo {
+    .bl-logo {
       font-family: var(--font-headings);
       font-size: 11px;
       font-weight: 700;
@@ -92,20 +92,20 @@
       text-decoration: none;
     }
 
-    .pr-nav-right {
+    .bl-nav-right {
       display: flex;
       align-items: center;
       gap: 32px;
     }
 
-    .pr-nav-links {
+    .bl-nav-links {
       display: flex;
       gap: 32px;
       list-style: none;
       margin: 0; padding: 0;
     }
 
-    .pr-nav-links a {
+    .bl-nav-links a {
       font-size: 11px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -114,17 +114,17 @@
       transition: color 0.2s;
     }
 
-    .pr-nav-links a.active, .pr-nav-links a:hover {
+    .bl-nav-links a.active, .bl-nav-links a:hover {
       color: var(--text-color);
     }
 
-    .pr-nav-actions {
+    .bl-nav-actions {
       display: flex;
       align-items: center;
       gap: 16px;
     }
 
-    .pr-action-btn {
+    .bl-action-btn {
       background: transparent;
       border: none;
       color: var(--text-muted);
@@ -136,11 +136,11 @@
       padding: 4px;
     }
 
-    .pr-action-btn:hover {
+    .bl-action-btn:hover {
       color: var(--text-color);
     }
 
-    .pr-action-btn .material-symbols-outlined {
+    .bl-action-btn .material-symbols-outlined {
       font-size: 20px;
     }
 
@@ -184,12 +184,12 @@
       font-weight: 600;
     }
 
-    .pr-hero {
+    .bl-hero {
       padding: 56px 36px 40px;
       border-bottom: 0.5px solid var(--border-color-light);
     }
 
-    .pr-title {
+    .bl-title {
       font-family: var(--font-headings);
       font-size: 56px;
       font-weight: 700;
@@ -199,109 +199,108 @@
       color: var(--text-color);
     }
 
-    .pr-subtitle {
+    .bl-subtitle {
       font-size: 13px;
       color: var(--text-muted);
       line-height: 1.6;
       max-width: 380px;
     }
 
-    .pr-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 32px;
-      padding: 36px;
+    .bl-list {
+      padding: 0 36px;
       flex-grow: 1;
     }
 
-    @media (max-width: 768px) {
-      .pr-grid {
-        grid-template-columns: 1fr;
-        padding: 24px;
-        gap: 24px;
-      }
+    .bl-post {
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      gap: 0 28px;
+      align-items: start;
+      padding: 24px 0;
+      border-bottom: 0.5px solid var(--border-color-light);
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.15s;
+      margin: 0 -36px;
+      padding-left: 36px;
+      padding-right: 36px;
     }
 
-    .pr-card {
-      padding: 24px;
-      border: 0.5px solid var(--border-color-light);
-      border-radius: 4px;
+    .bl-post:hover {
       background: var(--hover-bg);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: border-color 0.2s, background-color 0.2s, transform 0.2s;
     }
 
-    .pr-card:hover {
-      border-color: var(--border-color);
-      background-color: rgba(240,237,232,0.05);
-      transform: translateY(-2px);
+    .bl-post:hover .bl-arrow {
+      opacity: 1;
+      transform: translate(2px, -2px);
     }
 
-    html.light .pr-card:hover {
-      background-color: rgba(10,10,10,0.05);
+    .bl-date-col {
+      font-family: var(--font-body);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      color: var(--text-muted-more);
+      text-transform: uppercase;
+      padding-top: 3px;
+      line-height: 1.6;
     }
 
-    .pr-proj-top {
-      margin-bottom: 12px;
-    }
-
-    .pr-proj-name {
+    .bl-post-title {
       font-family: var(--font-headings);
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 600;
       letter-spacing: -0.01em;
       color: var(--text-color);
-      margin-bottom: 8px;
-    }
-
-    .pr-tags {
+      margin-bottom: 5px;
+      line-height: 1.3;
       display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      margin-bottom: 12px;
+      align-items: center;
     }
 
-    .pr-tag {
-      font-family: var(--font-mono);
-      font-size: 9px;
-      letter-spacing: 0.06em;
-      color: var(--text-muted);
-      border: 0.5px solid var(--border-color-light);
-      padding: 3px 7px;
-      border-radius: 2px;
-      background: rgba(240,237,232,0.01);
-    }
-
-    .pr-proj-desc {
+    .bl-post-desc {
       font-size: 12px;
       color: var(--text-muted);
       line-height: 1.6;
-      margin-bottom: 16px;
+      max-width: 520px;
     }
 
-    .pr-proj-link {
-      font-family: var(--font-mono);
+    .bl-meta {
+      font-family: var(--font-body);
       font-size: 10px;
       letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      transition: color 0.15s;
-      margin-top: auto;
+      color: var(--text-muted-more);
+      padding-top: 3px;
+      white-space: nowrap;
     }
 
-    .pr-proj-link:hover {
+    .bl-arrow {
+      display: inline-block;
+      font-size: 14px;
+      color: var(--text-muted);
+      opacity: 0;
+      transition: opacity 0.15s, transform 0.15s;
+      margin-left: 8px;
+    }
+
+    .bl-post:first-child .bl-post-title {
       color: var(--text-color);
+    }
+
+    .bl-post:first-child .bl-date-col {
+      color: var(--text-muted);
+    }
+
+    .bl-post:first-child .bl-post-desc {
+      color: var(--text-muted);
+    }
+
+    .bl-post:first-child {
+      border-bottom-color: var(--border-color);
     }
 
 
     /* Shared Footer Styling */
-    .pr-footer {
+    .bl-footer {
       border-top: 0.5px solid var(--border-color);
       padding: 36px;
       display: flex;
@@ -312,18 +311,18 @@
       margin-top: auto;
     }
 
-    .pr-footer-copyright {
+    .bl-footer-copyright {
       font-family: var(--font-body);
       font-size: 11px;
       color: var(--text-muted);
     }
 
-    .pr-footer-links {
+    .bl-footer-links {
       display: flex;
       gap: 24px;
     }
 
-    .pr-footer-link {
+    .bl-footer-link {
       font-family: var(--font-body);
       font-size: 11px;
       letter-spacing: 0.06em;
@@ -336,11 +335,11 @@
       transition: color 0.2s;
     }
 
-    .pr-footer-link:hover {
+    .bl-footer-link:hover {
       color: var(--text-color);
     }
 
-    .pr-footer-link svg {
+    .bl-footer-link svg {
       width: 14px;
       height: 14px;
       fill: currentColor;
@@ -350,7 +349,18 @@
       #desktop-links {
         display: none;
       }
-      .pr-footer {
+      .bl-post {
+        grid-template-columns: 1fr;
+        gap: 12px 0;
+      }
+      .bl-date-col {
+        padding-top: 0;
+      }
+      .bl-meta {
+        padding-top: 0;
+        margin-top: 4px;
+      }
+      .bl-footer {
         flex-direction: column;
         align-items: flex-start;
       }
@@ -375,24 +385,24 @@
 </head>
 <body>
 
-<div class="pr-root">
+<div class="bl-root">
 
   <!-- Shared TopNavBar -->
-  <nav class="pr-nav">
-    <a href="../home_alex_chen_portfolio_row_based_status/code.html" class="pr-logo">GS</a>
-    <div class="pr-nav-right">
-      <ul class="pr-nav-links" id="desktop-links">
-        <li><a href="../home_alex_chen_portfolio_row_based_status/code.html">Home</a></li>
-        <li><a class="active" href="./code.html">Projects</a></li>
-        <li><a href="../blog_alex_chen_portfolio_refined/code.html">Blog</a></li>
-        <li><a href="../resume_gunin_sharma_single_column/code.html">Resume</a></li>
+  <nav class="bl-nav">
+    <a href="index.html" class="bl-logo">GS</a>
+    <div class="bl-nav-right">
+      <ul class="bl-nav-links" id="desktop-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a class="active" href="blog.html">Blog</a></li>
+        <li><a href="resume.html">Resume</a></li>
       </ul>
       
-      <div class="pr-nav-actions">
-        <button id="theme-toggle" class="pr-action-btn">
+      <div class="bl-nav-actions">
+        <button id="theme-toggle" class="bl-action-btn">
           <span class="material-symbols-outlined" id="theme-toggle-icon">dark_mode</span>
         </button>
-        <button id="mobile-menu-btn" class="pr-action-btn mobile-only">
+        <button id="mobile-menu-btn" class="bl-action-btn mobile-only">
           <span class="material-symbols-outlined" id="mobile-menu-icon">menu</span>
         </button>
       </div>
@@ -400,131 +410,59 @@
 
     <!-- Mobile Nav Menu -->
     <ul id="mobile-menu">
-      <li><a href="../home_alex_chen_portfolio_row_based_status/code.html">Home</a></li>
-      <li><a class="active" href="./code.html">Projects</a></li>
-      <li><a href="../blog_alex_chen_portfolio_refined/code.html">Blog</a></li>
-      <li><a href="../resume_gunin_sharma_single_column/code.html">Resume</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a class="active" href="blog.html">Blog</a></li>
+      <li><a href="resume.html">Resume</a></li>
     </ul>
   </nav>
 
   <!-- Hero Section -->
-  <div class="pr-hero">
-    <h1 class="pr-title">Projects</h1>
-    <p class="pr-subtitle">Things I've built.</p>
+  <div class="bl-hero">
+    <h1 class="bl-title">Blog</h1>
+    <p class="bl-subtitle">Thoughts on technology, building, and personal growth.</p>
   </div>
 
-  <!-- Projects Grid -->
-  <div class="pr-grid">
-    <!-- Project: LegalEase AI -->
-    <article class="pr-card">
-      <div class="pr-proj-top">
-        <h2 class="pr-proj-name">LegalEase AI</h2>
-        <div class="pr-tags">
-          <span class="pr-tag">Python</span>
-          <span class="pr-tag">FastAPI</span>
-          <span class="pr-tag">Next.js</span>
-          <span class="pr-tag">Gemini</span>
-          <span class="pr-tag">RAG</span>
-        </div>
+  <!-- Blog Post List -->
+  <div class="bl-list">
+    <!-- BLOG_POSTS_START -->
+    <a class="bl-post" href="posts/putting_the_pieces_somewhere.html">
+      <div class="bl-date-col">May 25<br>2026</div>
+      <div>
+        <div class="bl-post-title">Putting the Pieces Somewhere<span class="bl-arrow">↗</span></div>
+        <div class="bl-post-desc">A quick explanation of why this site exists.</div>
       </div>
-      <p class="pr-proj-desc">RAG pipeline over legal PDFs for conversational Q&amp;A, contract risk scoring, clause detection, and cross-case semantic search.</p>
-      <a class="pr-proj-link" href="https://github.com/guninsharma/ai-legal-chatbot" target="_blank">GitHub ↗</a>
-    </article>
+      <div class="bl-meta">2 min read</div>
+    </a>
 
-    <!-- Project: AI Market Event Detector -->
-    <article class="pr-card">
-      <div class="pr-proj-top">
-        <h2 class="pr-proj-name">AI Market Event Detector</h2>
-        <div class="pr-tags">
-          <span class="pr-tag">Python</span>
-          <span class="pr-tag">Scikit-learn</span>
-          <span class="pr-tag">Streamlit</span>
-          <span class="pr-tag">LLMs</span>
-        </div>
+    <!-- BLOG_POSTS_END -->
+    <!-- Template Post (Commented out for styling reference)
+    <a class="bl-post" href="#">
+      <div class="bl-date-col">May 10<br>2026</div>
+      <div>
+        <div class="bl-post-title">Post Title<span class="bl-arrow">↗</span></div>
+        <div class="bl-post-desc">Post description goes here.</div>
       </div>
-      <p class="pr-proj-desc">Anomaly detection system using Isolation Forest to flag unusual market movements, with Gemini-generated analyst-style explanations.</p>
-      <a class="pr-proj-link" href="https://github.com/guninsharma/ai-market-event-detector" target="_blank">GitHub ↗</a>
-    </article>
-
-    <!-- Project: GridEdge -->
-    <article class="pr-card">
-      <div class="pr-proj-top">
-        <h2 class="pr-proj-name">GridEdge</h2>
-        <div class="pr-tags">
-          <span class="pr-tag">Python</span>
-          <span class="pr-tag">LightGBM</span>
-          <span class="pr-tag">PuLP</span>
-          <span class="pr-tag">Docker</span>
-        </div>
-      </div>
-      <p class="pr-proj-desc">F1 fantasy team optimizer — ML-predicted driver points combined with Integer Linear Programming to pick the optimal squad under budget.</p>
-      <a class="pr-proj-link" href="https://github.com/guninsharma/grid-edge-f1-optimiser" target="_blank">GitHub ↗</a>
-    </article>
-
-    <!-- Project: Ripple -->
-    <article class="pr-card">
-      <div class="pr-proj-top">
-        <h2 class="pr-proj-name">Ripple</h2>
-        <div class="pr-tags">
-          <span class="pr-tag">Python</span>
-          <span class="pr-tag">OpenCV</span>
-          <span class="pr-tag">MediaPipe</span>
-          <span class="pr-tag">Flask</span>
-        </div>
-      </div>
-      <p class="pr-proj-desc">Real-time hand gesture recognition using MediaPipe landmarks with a custom classifier trained on curated gesture datasets.</p>
-      <a class="pr-proj-link" href="https://github.com/guninsharma/ripple-cv" target="_blank">GitHub ↗</a>
-    </article>
-
-    <!-- Project: RentalDB -->
-    <article class="pr-card">
-      <div class="pr-proj-top">
-        <h2 class="pr-proj-name">RentalDB</h2>
-        <div class="pr-tags">
-          <span class="pr-tag">Python</span>
-          <span class="pr-tag">Docker</span>
-          <span class="pr-tag">Flask</span>
-          <span class="pr-tag">MySQL</span>
-          <span class="pr-tag">JavaScript</span>
-        </div>
-      </div>
-      <p class="pr-proj-desc">Full-stack equipment rental management system. Flask + MySQL, covers the full rental lifecycle from booking to payments. Built it to get familiar with relational schema design.</p>
-      <a class="pr-proj-link" href="https://github.com/guninsharma/RentalDB" target="_blank">GitHub ↗</a>
-    </article>
-
-    <!-- Project: Review Sentiment Analysis -->
-    <article class="pr-card">
-      <div class="pr-proj-top">
-        <h2 class="pr-proj-name">Review Sentiment Analysis</h2>
-        <div class="pr-tags">
-          <span class="pr-tag">Python</span>
-          <span class="pr-tag">FastAPI</span>
-          <span class="pr-tag">Scikit-learn</span>
-          <span class="pr-tag">NLTK</span>
-          <span class="pr-tag">Pandas</span>
-          <span class="pr-tag">NumPy</span>
-        </div>
-      </div>
-      <p class="pr-proj-desc">A sentiment analysis API built with FastAPI, featuring negation handling, threshold tuning, and neutral detection. Fixed a heavily imbalanced dataset using SMOTE — boosting minority-class F1 from 0.08 to 0.52.</p>
-      <a class="pr-proj-link" href="https://github.com/guninsharma/sentiment-analysis-review-system" target="_blank">GitHub ↗</a>
-    </article>
+      <div class="bl-meta">X min read</div>
+    </a>
+    -->
   </div>
 
   <!-- Shared Footer -->
-  <footer class="pr-footer">
-    <div class="pr-footer-copyright">
+  <footer class="bl-footer">
+    <div class="bl-footer-copyright">
       © Gunin Sharma
     </div>
-    <div class="pr-footer-links">
-      <a class="pr-footer-link" href="https://github.com/GuninSharma" target="_blank">
+    <div class="bl-footer-links">
+      <a class="bl-footer-link" href="https://github.com/GuninSharma" target="_blank">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.137 20.162 22 16.418 22 12c0-5.523-4.477-10-10-10z"></path></svg>
         GitHub
       </a>
-      <a class="pr-footer-link" href="https://www.linkedin.com/in/guninsharma" target="_blank">
+      <a class="bl-footer-link" href="https://www.linkedin.com/in/guninsharma" target="_blank">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"></path></svg>
         LinkedIn
       </a>
-      <a class="pr-footer-link" href="mailto:gunin1706@gmail.com">
+      <a class="bl-footer-link" href="mailto:gunin1706@gmail.com">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path></svg>
         Email
       </a>
@@ -596,7 +534,7 @@
     });
   }, observerOptions);
 
-  document.querySelectorAll('.pr-card').forEach(el => {
+  document.querySelectorAll('.bl-post').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(16px)';
     el.style.transition = 'all 0.5s ease-out';

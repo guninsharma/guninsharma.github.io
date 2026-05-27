@@ -5,7 +5,7 @@
   "main": "scripts/build-blog.js",
   "scripts": {
     "build:blog": "node scripts/build-blog.js",
-    "dev": "npx -y http-server stitch_editorial_tech_portfolio -p 8080"
+    "dev": "npx -y http-server ./ -p 8080"
   },
   "dependencies": {
     "marked": "^12.0.0"
