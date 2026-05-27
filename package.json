@@ -1,0 +1,13 @@
+{
+  "name": "stitch-editorial-tech-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio and blog build system",
+  "main": "scripts/build-blog.js",
+  "scripts": {
+    "build:blog": "node scripts/build-blog.js",
+    "dev": "npx -y http-server stitch_editorial_tech_portfolio -p 8080"
+  },
+  "dependencies": {
+    "marked": "^12.0.0"
+  }
+}

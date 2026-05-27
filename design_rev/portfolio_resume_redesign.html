@@ -1,0 +1,265 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap');
+
+  .rv-root {
+    font-family: 'Syne', sans-serif;
+    background: #0A0A0A;
+    color: #F0EDE8;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .rv-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 36px;
+    border-bottom: 0.5px solid rgba(240,237,232,0.1);
+  }
+  .rv-logo { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+  .rv-nav-links { display: flex; gap: 32px; list-style: none; margin: 0; padding: 0; }
+  .rv-nav-links a { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(240,237,232,0.45); text-decoration: none; }
+  .rv-nav-links a.active { color: #F0EDE8; }
+
+  .rv-hero {
+    padding: 56px 36px 40px;
+    border-bottom: 0.5px solid rgba(240,237,232,0.08);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  .rv-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(240,237,232,0.3); margin-bottom: 18px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .rv-eyebrow::before { content:''; display:inline-block; width:24px; height:0.5px; background:rgba(240,237,232,0.3); }
+  .rv-title { font-size: 56px; font-weight: 800; letter-spacing: -0.03em; line-height: 0.95; margin: 0 0 14px; }
+  .rv-sub { font-size: 12px; color: rgba(240,237,232,0.38); font-family: 'DM Mono', monospace; letter-spacing: 0.04em; }
+
+  .rv-dl {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: rgba(240,237,232,0.4); background: transparent;
+    border: 0.5px solid rgba(240,237,232,0.2);
+    padding: 10px 18px; border-radius: 2px; cursor: pointer;
+    display: flex; align-items: center; gap: 8px;
+    transition: color 0.15s, border-color 0.15s;
+    white-space: nowrap; align-self: flex-end;
+  }
+  .rv-dl:hover { color: #F0EDE8; border-color: rgba(240,237,232,0.5); }
+
+  .rv-body { padding: 0 36px; }
+
+  .rv-section { padding: 36px 0; border-bottom: 0.5px solid rgba(240,237,232,0.06); }
+  .rv-section:last-child { border-bottom: none; }
+
+  .rv-section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(240,237,232,0.25); margin-bottom: 20px;
+  }
+
+  .rv-row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 4px;
+  }
+  .rv-degree { font-size: 15px; font-weight: 700; letter-spacing: -0.01em; }
+  .rv-dates {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; letter-spacing: 0.08em; color: rgba(240,237,232,0.3);
+    white-space: nowrap;
+  }
+  .rv-uni { font-size: 12px; color: rgba(240,237,232,0.45); margin-bottom: 10px; }
+  .rv-stats { display: flex; gap: 24px; }
+  .rv-stat-item {
+    display: flex; flex-direction: column; gap: 2px;
+  }
+  .rv-stat-val { font-size: 14px; font-weight: 700; color: #F0EDE8; }
+  .rv-stat-lbl { font-family: 'DM Mono', monospace; font-size: 10px; color: rgba(240,237,232,0.3); letter-spacing: 0.06em; }
+
+  .rv-project { padding: 20px 0; border-bottom: 0.5px solid rgba(240,237,232,0.05); }
+  .rv-project:last-child { border-bottom: none; padding-bottom: 0; }
+  .rv-project:first-child { padding-top: 0; }
+
+  .rv-proj-top { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 5px; }
+  .rv-proj-name { font-size: 14px; font-weight: 700; letter-spacing: -0.01em; }
+  .rv-tags { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+  .rv-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px; letter-spacing: 0.06em;
+    color: rgba(240,237,232,0.35);
+    border: 0.5px solid rgba(240,237,232,0.12);
+    padding: 3px 7px; border-radius: 2px;
+  }
+  .rv-proj-desc { font-size: 12px; color: rgba(240,237,232,0.42); line-height: 1.6; margin-bottom: 8px; max-width: 560px; }
+  .rv-proj-link {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase;
+    color: rgba(240,237,232,0.3); text-decoration: none;
+    display: inline-flex; align-items: center; gap: 4px;
+    transition: color 0.15s;
+  }
+  .rv-proj-link:hover { color: rgba(240,237,232,0.7); }
+
+  .rv-open {
+    font-size: 13px; color: rgba(240,237,232,0.45); line-height: 1.7;
+  }
+  .rv-open strong { color: #F0EDE8; font-weight: 600; }
+
+  .rv-stack-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px 16px;
+  }
+  .rv-stack-col {}
+  .rv-stack-cat {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(240,237,232,0.25); margin-bottom: 10px;
+  }
+  .rv-stack-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .rv-stack-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; letter-spacing: 0.04em;
+    color: rgba(240,237,232,0.5);
+    background: rgba(240,237,232,0.05);
+    padding: 4px 9px; border-radius: 2px;
+  }
+</style>
+
+<div class="rv-root">
+  <nav class="rv-nav">
+    <span class="rv-logo">GS</span>
+    <ul class="rv-nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="#" class="active">Resume</a></li>
+    </ul>
+  </nav>
+
+  <div class="rv-hero">
+    <div>
+      <div class="rv-eyebrow">Résumé</div>
+      <h1 class="rv-title">Resume</h1>
+      <p class="rv-sub">Data Science · Vidyashilp University · Bangalore, India</p>
+    </div>
+    <button class="rv-dl">↓ Download PDF</button>
+  </div>
+
+  <div class="rv-body">
+
+    <div class="rv-section">
+      <div class="rv-section-label">Education</div>
+      <div class="rv-row">
+        <span class="rv-degree">B.Tech (Hons), Data Science — Minor: Finance</span>
+        <span class="rv-dates">2024 – 2028 (expected)</span>
+      </div>
+      <div class="rv-uni">Vidyashilp University · Bangalore, India</div>
+      <div class="rv-stats">
+        <div class="rv-stat-item">
+          <span class="rv-stat-val">9.21 / 10</span>
+          <span class="rv-stat-lbl">CGPA</span>
+        </div>
+        <div class="rv-stat-item">
+          <span class="rv-stat-val">Merit Scholar</span>
+          <span class="rv-stat-lbl">Top 40%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="rv-section">
+      <div class="rv-section-label">Selected Projects</div>
+
+      <div class="rv-project">
+        <div class="rv-proj-top">
+          <span class="rv-proj-name">LegalEase AI</span>
+          <div class="rv-tags">
+            <span class="rv-tag">Python</span><span class="rv-tag">FastAPI</span><span class="rv-tag">Next.js</span><span class="rv-tag">Gemini</span><span class="rv-tag">RAG</span>
+          </div>
+        </div>
+        <div class="rv-proj-desc">RAG pipeline over legal PDFs for conversational Q&A, contract risk scoring, clause detection, and cross-case semantic search.</div>
+        <a href="#" class="rv-proj-link">GitHub ↗</a>
+      </div>
+
+      <div class="rv-project">
+        <div class="rv-proj-top">
+          <span class="rv-proj-name">AI Market Event Detector</span>
+          <div class="rv-tags">
+            <span class="rv-tag">Python</span><span class="rv-tag">Scikit-learn</span><span class="rv-tag">Streamlit</span><span class="rv-tag">LLMs</span>
+          </div>
+        </div>
+        <div class="rv-proj-desc">Anomaly detection system using Isolation Forest to flag unusual market movements, with Gemini-generated analyst-style explanations.</div>
+        <a href="#" class="rv-proj-link">GitHub ↗</a>
+      </div>
+
+      <div class="rv-project">
+        <div class="rv-proj-top">
+          <span class="rv-proj-name">GridEdge</span>
+          <div class="rv-tags">
+            <span class="rv-tag">Python</span><span class="rv-tag">LightGBM</span><span class="rv-tag">PuLP</span><span class="rv-tag">Docker</span>
+          </div>
+        </div>
+        <div class="rv-proj-desc">F1 fantasy team optimizer — ML-predicted driver points combined with Integer Linear Programming to pick the optimal squad under budget.</div>
+        <a href="#" class="rv-proj-link">GitHub ↗</a>
+      </div>
+    </div>
+
+    <div class="rv-section">
+      <div class="rv-section-label">Internships & Experience</div>
+      <p class="rv-open">Currently open to <strong>Data Science and ML internships</strong> — Summer 2026.</p>
+    </div>
+
+    <div class="rv-section">
+      <div class="rv-section-label">Tech Stack</div>
+      <div class="rv-stack-grid">
+        <div class="rv-stack-col">
+          <div class="rv-stack-cat">Languages</div>
+          <div class="rv-stack-tags">
+            <span class="rv-stack-tag">Python</span>
+            <span class="rv-stack-tag">SQL</span>
+            <span class="rv-stack-tag">C</span>
+            <span class="rv-stack-tag">Java</span>
+            <span class="rv-stack-tag">LaTeX</span>
+          </div>
+        </div>
+        <div class="rv-stack-col">
+          <div class="rv-stack-cat">Scientific</div>
+          <div class="rv-stack-tags">
+            <span class="rv-stack-tag">Scikit-learn</span>
+            <span class="rv-stack-tag">LightGBM</span>
+            <span class="rv-stack-tag">Pandas</span>
+            <span class="rv-stack-tag">NumPy</span>
+            <span class="rv-stack-tag">NLTK</span>
+            <span class="rv-stack-tag">OpenCV</span>
+          </div>
+        </div>
+        <div class="rv-stack-col">
+          <div class="rv-stack-cat">Visualization</div>
+          <div class="rv-stack-tags">
+            <span class="rv-stack-tag">Power BI</span>
+            <span class="rv-stack-tag">Matplotlib</span>
+            <span class="rv-stack-tag">Seaborn</span>
+            <span class="rv-stack-tag">Plotly</span>
+            <span class="rv-stack-tag">Streamlit</span>
+          </div>
+        </div>
+        <div class="rv-stack-col">
+          <div class="rv-stack-cat">Backend & Tools</div>
+          <div class="rv-stack-tags">
+            <span class="rv-stack-tag">FastAPI</span>
+            <span class="rv-stack-tag">Flask</span>
+            <span class="rv-stack-tag">MySQL</span>
+            <span class="rv-stack-tag">Docker</span>
+            <span class="rv-stack-tag">Git</span>
+            <span class="rv-stack-tag">REST APIs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

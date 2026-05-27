@@ -1,0 +1,298 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap');
+
+  .pf-root {
+    font-family: 'Syne', sans-serif;
+    background: #0A0A0A;
+    color: #F0EDE8;
+    min-height: 600px;
+    padding: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .pf-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 36px;
+    border-bottom: 0.5px solid rgba(240,237,232,0.1);
+  }
+
+  .pf-logo {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: #F0EDE8;
+    text-transform: uppercase;
+  }
+
+  .pf-nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    margin: 0; padding: 0;
+  }
+
+  .pf-nav-links a {
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(240,237,232,0.45);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .pf-nav-links a.active { color: #F0EDE8; }
+
+  .pf-hero {
+    padding: 64px 36px 48px;
+    position: relative;
+  }
+
+  .pf-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(240,237,232,0.35);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .pf-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 0.5px;
+    background: rgba(240,237,232,0.35);
+  }
+
+  .pf-name {
+    font-size: clamp(48px, 8vw, 72px);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin: 0 0 32px;
+    color: #F0EDE8;
+  }
+
+  .pf-name em {
+    font-style: normal;
+    color: rgba(240,237,232,0.2);
+  }
+
+  .pf-bio {
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(240,237,232,0.5);
+    max-width: 440px;
+    margin: 0 0 56px;
+  }
+
+  .pf-section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(240,237,232,0.25);
+    margin-bottom: 16px;
+  }
+
+  .pf-projects {
+    border-top: 0.5px solid rgba(240,237,232,0.08);
+    margin: 0 0 48px;
+  }
+
+  .pf-project {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+    border-bottom: 0.5px solid rgba(240,237,232,0.06);
+    cursor: default;
+    transition: background 0.15s;
+    margin: 0 -36px;
+    padding-left: 36px;
+    padding-right: 36px;
+  }
+  .pf-project:hover { background: rgba(240,237,232,0.03); }
+
+  .pf-project-left { flex: 1; }
+
+  .pf-project-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #F0EDE8;
+    margin-bottom: 3px;
+    letter-spacing: -0.01em;
+  }
+
+  .pf-project-desc {
+    font-size: 12px;
+    color: rgba(240,237,232,0.38);
+    line-height: 1.5;
+  }
+
+  .pf-status {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    padding: 4px 10px;
+    border-radius: 2px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .pf-status-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .status-active { color: rgba(94,192,152,0.9); }
+  .status-active .pf-status-dot { background: #5EC098; box-shadow: 0 0 0 2px rgba(94,192,152,0.15); }
+
+  .status-soon { color: rgba(240,237,232,0.35); }
+  .status-soon .pf-status-dot { background: rgba(240,237,232,0.35); }
+
+  .status-explore { color: rgba(149,140,230,0.8); }
+  .status-explore .pf-status-dot { background: #958CE6; box-shadow: 0 0 0 2px rgba(149,140,230,0.12); }
+
+  .pf-contact-row {
+    padding: 0 36px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 0.5px solid rgba(240,237,232,0.08);
+    padding-top: 32px;
+  }
+
+  .pf-contact-label {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #F0EDE8;
+  }
+
+  .pf-contact-links {
+    display: flex;
+    gap: 24px;
+  }
+
+  .pf-contact-link {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: rgba(240,237,232,0.4);
+    text-decoration: none;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+  }
+  .pf-contact-link:hover { color: #F0EDE8; }
+  .pf-contact-link span { font-size: 14px; }
+
+  .pf-cta {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #0A0A0A;
+    background: #F0EDE8;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 2px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: opacity 0.15s;
+  }
+  .pf-cta:hover { opacity: 0.85; }
+
+  .pf-grid-overlay {
+    position: absolute;
+    top: 0; right: 0;
+    width: 260px;
+    height: 100%;
+    opacity: 0.03;
+    background-image: repeating-linear-gradient(0deg, #F0EDE8 0, #F0EDE8 0.5px, transparent 0, transparent 40px),
+      repeating-linear-gradient(90deg, #F0EDE8 0, #F0EDE8 0.5px, transparent 0, transparent 40px);
+    pointer-events: none;
+  }
+</style>
+
+<div class="pf-root">
+  <div class="pf-grid-overlay"></div>
+
+  <nav class="pf-nav">
+    <span class="pf-logo">GS</span>
+    <ul class="pf-nav-links">
+      <li><a href="#" class="active">Home</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="#">Resume</a></li>
+    </ul>
+  </nav>
+
+  <div class="pf-hero">
+    <div class="pf-eyebrow">AI / ML Engineer · CS & Data Science</div>
+
+    <h1 class="pf-name">Gunin<br><em>Sharma</em></h1>
+
+    <p class="pf-bio">Studying CS & Data Science at Vidyashilp University, minoring in Finance. Working at the intersection of AI engineering, quantitative analysis, and mathematics.</p>
+
+    <div class="pf-section-label">Currently working on</div>
+
+    <div class="pf-projects">
+      <div class="pf-project">
+        <div class="pf-project-left">
+          <div class="pf-project-name">LegalEase AI</div>
+          <div class="pf-project-desc">RAG pipeline over legal PDFs for conversational Q&A and contract risk scoring.</div>
+        </div>
+        <div class="pf-status status-active">
+          <div class="pf-status-dot"></div>
+          In progress
+        </div>
+      </div>
+      <div class="pf-project">
+        <div class="pf-project-left">
+          <div class="pf-project-name">AI Market Event Detector</div>
+          <div class="pf-project-desc">Anomaly detection using Isolation Forest with Gemini-generated analyst explanations.</div>
+        </div>
+        <div class="pf-status status-soon">
+          <div class="pf-status-dot"></div>
+          Shipping soon
+        </div>
+      </div>
+      <div class="pf-project">
+        <div class="pf-project-left">
+          <div class="pf-project-name">GridEdge</div>
+          <div class="pf-project-desc">F1 fantasy team optimizer combining ML-predicted points with Integer Linear Programming.</div>
+        </div>
+        <div class="pf-status status-explore">
+          <div class="pf-status-dot"></div>
+          Exploring
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pf-contact-row">
+    <span class="pf-contact-label">Get in touch</span>
+    <div class="pf-contact-links">
+      <a href="#" class="pf-contact-link"><span>↗</span> Email</a>
+      <a href="#" class="pf-contact-link"><span>↗</span> LinkedIn</a>
+      <a href="#" class="pf-contact-link"><span>↗</span> GitHub</a>
+    </div>
+    <button class="pf-cta">Say hello <span>→</span></button>
+  </div>
+</div>
